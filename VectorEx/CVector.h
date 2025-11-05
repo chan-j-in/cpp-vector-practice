@@ -9,6 +9,8 @@ private:
 private:
 	template <typename U>
 	friend class CVector;
+	template <typename U>
+	friend class CVectorIterator;
 
 private:
 	T data;
@@ -38,6 +40,9 @@ public:
 private:
 	typedef CVectorNode<T> NODE;
 	typedef CVectorNode<T>* PNODE;
+
+public:
+	typedef CVectorIterator<T> iterator;
 
 private:
 	PNODE arr;
@@ -77,4 +82,22 @@ public:
 	T& operator [](int index) {
 		return arr[index + 1].data;
 	}
+};
+
+template <typename T>
+class CVectorIterator {
+public:
+	CVectorIterator() {}
+	~CVectorIterator() {}
+
+private:
+	template<typename U>
+	friend class CVector;
+
+private:
+	typedef CVectorNode<T> NODE;
+	typedef CVectorNode<T>* PNODE;
+
+private:
+	PNODE arr;
 };

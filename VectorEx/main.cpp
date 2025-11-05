@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
 	CVector<int> vecInt(100);
+	CVector<int>::iterator iter;
 
 	//vecInt.reserve(100);
 
@@ -18,6 +19,6 @@ int main() {
 	for (unsigned int i = 0; i < vecInt.getSize(); i++) {
 		cout << vecInt[i] << endl;
 	}
-
+	
 	return 0;
 }
