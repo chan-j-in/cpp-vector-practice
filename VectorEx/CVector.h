@@ -25,6 +25,12 @@ public:
 
 		arr = new NODE[capacity + 2];
 	}
+	CVector(int size) {
+		this->size = 0;
+		this->capacity = size;
+
+		arr = new NODE[capacity + 2];
+	}
 	~CVector() {
 		delete[] arr;
 	}
@@ -54,6 +60,13 @@ public:
 		memcpy(new_arr + 1, arr + 1, sizeof(NODE) * size);
 		delete[] arr;
 		arr = new_arr;
+	}
+
+	void reserve(int newSize) {
+		capacity = newSize;
+		delete[] arr;
+		arr = new NODE[capacity + 2];
+		size = 0;
 	}
 
 	bool full() { return size == capacity; }
