@@ -12,5 +12,6 @@ int main() {
 
 	cout << vecInt.getSize() << endl;
 	cout << vecInt.getCapacity() << endl;
+
 	return 0;
 }

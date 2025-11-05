@@ -58,7 +58,6 @@ public:
 
 	bool full() { return size == capacity; }
 	bool empty() { return size == 0; }
-	const int getSize() { return size; }
-	const int getCapacity() { return capacity; }
+	unsigned int getSize() const { return size; }
+	unsigned int getCapacity() const { return capacity; }
 };
-
