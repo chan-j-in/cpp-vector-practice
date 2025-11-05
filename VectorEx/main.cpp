@@ -13,5 +13,9 @@ int main() {
 	cout << vecInt.getSize() << endl;
 	cout << vecInt.getCapacity() << endl;
 
+	for (int i = 0; i < vecInt.getSize(); i++) {
+		cout << vecInt[i] << endl;
+	}
+
 	return 0;
 }

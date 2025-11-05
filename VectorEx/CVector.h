@@ -60,4 +60,8 @@ public:
 	bool empty() { return size == 0; }
 	unsigned int getSize() const { return size; }
 	unsigned int getCapacity() const { return capacity; }
+
+	T& operator [](int index) {
+		return arr[index + 1].data;
+	}
 };
