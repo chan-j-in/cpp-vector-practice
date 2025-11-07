@@ -3,7 +3,7 @@
 template <typename T>
 class CVectorNode {
 private:
-	CVectorNode() { }
+	CVectorNode() {	}
 	~CVectorNode() { }
 
 private:
@@ -74,6 +74,14 @@ public:
 		size = 0;
 	}
 
+	iterator begin() {
+		return iterator(&arr[1]);
+	}
+
+	iterator end() {
+		return iterator(&arr[size + 1]);
+	}
+
 	bool full() { return size == capacity; }
 	bool empty() { return size == 0; }
 	unsigned int getSize() const { return size; }
@@ -86,18 +94,37 @@ public:
 
 template <typename T>
 class CVectorIterator {
+private:
+	typedef CVectorNode<T> NODE;
+	typedef CVectorNode<T>* PNODE;
+
+private:
+	PNODE ptr;
+
 public:
 	CVectorIterator() {}
+	CVectorIterator(PNODE p) : ptr(p) {	}
 	~CVectorIterator() {}
 
 private:
 	template<typename U>
 	friend class CVector;
 
-private:
-	typedef CVectorNode<T> NODE;
-	typedef CVectorNode<T>* PNODE;
+public:
+	bool operator ==(const CVectorIterator& iter) {
+		return ptr == iter.ptr;
+	}
+	bool operator !=(const CVectorIterator& iter) {
+		return ptr != iter.ptr;
+	}
 
-private:
-	PNODE arr;
+	void operator ++() {
+		ptr++;
+	}
+	void operator --() {
+		ptr--;
+	}
+	const T& operator *() {
+		return ptr->data;
+	}
 };

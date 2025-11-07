@@ -4,10 +4,8 @@
 using namespace std;
 
 int main() {
-	CVector<int> vecInt(100);
+	CVector<int> vecInt(55);
 	CVector<int>::iterator iter;
-
-	//vecInt.reserve(100);
 
 	for (int i = 0; i < 100; i++) {
 		vecInt.push_back(i + 1);
@@ -16,8 +14,8 @@ int main() {
 	cout << vecInt.getSize() << endl;
 	cout << vecInt.getCapacity() << endl;
 
-	for (unsigned int i = 0; i < vecInt.getSize(); i++) {
-		cout << vecInt[i] << endl;
+	for (iter = vecInt.begin(); iter!=vecInt.end() ; ++iter) {
+		cout << *iter << endl;
 	}
 	
 	return 0;
